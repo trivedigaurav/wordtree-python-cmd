@@ -1,0 +1,48 @@
+text.leaf{
+	fill:#aaa;
+    cursor:pointer;
+}
+
+text.tree{
+    cursor:pointer;
+    fill:black;
+}
+
+text.selected{
+	fill:#B35522;
+}
+
+.node {
+  font: 10px sans-serif;
+}
+
+.link {
+  fill: none;
+  stroke: #D17519;
+  stroke-width: 0.5px;
+}
+
+text.number-popup{
+    fill:#aaa;
+}
+
+g.sentence-popup{
+    fill:#fff;
+    stroke-width:0.5px;
+}
+
+text.wordtree-highlight-sentence {
+    fill:#B35522;
+}
+
+text.positive{
+  fill: red;
+}
+
+text.negative{
+  fill: blue;
+}
+
+text.positive .negative{
+  fill: green;
+}

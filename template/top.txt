@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Simple Tree</title>
+		
+		<script type="text/javascript" src="wordtree-controller.js"></script>
+		<script type="text/javascript" src="wordtree-layout.js"></script>
+		<script type="text/javascript" src="wordtree-javafx-interface.js"></script>
+		
+		<script type="text/javascript" src="lib/jquery.js"></script>
+		<script type="text/javascript" src='lib/d3/d3.v3.min.js'></script>
+		<script type="text/javascript" src='lib/jquery.scrollTo.js'></script>
+
+		<script type="text/javascript">
+
+			$(document).ready(function(){
+				makeWordTree()
+			});
+
+		</script>
+
+		<link rel="stylesheet" type="text/css" href="wordtree-style.css">
+
+	</head>
+	<body>
+		<div id="word-tree"></div>
+		<script type="text/javascript">
+
