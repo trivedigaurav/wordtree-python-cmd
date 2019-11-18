@@ -8,7 +8,7 @@ def doSplit(root, inFile="docList.txt"):
     global debug
 
     if (not root):
-        print "Error: No root word provided!"
+        sys.stdout.write("Error: No root word provided!")
         return
 
     f = open(inFile, "rb")
@@ -18,7 +18,8 @@ def doSplit(root, inFile="docList.txt"):
         f.close()
     
     total = len(filelist)
-    print "Searching for", '"'+root+'"', "in" , total, "files." 
+    msg = "Searching for" + '"'+ str(root) + '"' + "in" + str(total) + "files."
+    sys.stdout.write(msg)
  
     phrases = []
 
@@ -29,10 +30,12 @@ def doSplit(root, inFile="docList.txt"):
     for filename in filelist:
 
         # print filename
-        filename = os.path.abspath(filename.rstrip("\r\n"))
+        path = filename.decode("utf-8") 
+        path = path.strip("\n\r")
+        file = os.path.abspath(path)
         # print filename
 
-        f = open(filename, 'r')
+        f = open(file, 'r')
         try:
             docid += 1
 
@@ -73,9 +76,9 @@ def doSplit(root, inFile="docList.txt"):
 
     if(debug):
         for node in tree:
-            print node['left'], "-", root, "-", node['right']
+            sys.stdout.write(node['left'], "-", root, "-", node['right'])
 
-    print "Documents included: ", count, "/", total, "(", round(100.0 * count / total, 2), "% )"
+    sys.stdout.write("Documents included: " + str(count) + "/" + str(total) + "(" + str(round(100.0 * count / total, 2)) + "%)")
 
     return (tree,count,total)
 
@@ -83,7 +86,7 @@ def prepareData(tree, root, matches, total):
     global debug
     
     if (tree == []):
-        print "Warning: Empty tree!"
+        sys.stdout.write("Warning: Empty tree!")
 
     data = 'var data = new Object();\n'
     
@@ -145,11 +148,11 @@ def main(argv):
     try:
         opts, args = getopt.getopt(argv, "hdi:w:o:", ["ifile"])
     except getopt.GetoptError:
-        print usage
+        sys.stdout.write(usage)
         sys.exit(2)
     for opt, arg in opts:
         if opt in ["-h", "--help"]:
-            print usage
+            sys.stdout.write(usage)
             sys.exit(0)
         elif opt in ("-i", "--infile"):
             inFile = os.path.abspath(arg)
@@ -161,7 +164,7 @@ def main(argv):
             outFile = arg
 
     if (not root or not inFile):
-        print usage
+        sys.stdout.write(usage)
         sys.exit(2)
 
     if (not outFile):
