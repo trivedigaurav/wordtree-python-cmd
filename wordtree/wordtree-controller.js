@@ -323,7 +323,7 @@ function updateWordTreeNode(source, orientation, root, vis) {
     
     // Scroll the container of this word tree so that the root of the
     // tree is in view.
-	vis.container.parent().scrollTo('51%', {duration:1, axis:'x'});
+    window.scrollTo(($(document).width()-$(window).width())*.51,0);
 }
 
 /** Recursively repositions the x-value of tree nodes starting at the given
